@@ -44,7 +44,7 @@
     "eslint-plugin-vue-pug": "^0.6.2",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.8",
-    "nuxt": "^3.12.4",
+    "nuxt": "^3.16.0",
     "pinia": "^2.2.1",
     "pug": "^3.0.3",
     "sass-embedded": "^1.77.8",

@@ -2,6 +2,10 @@ import vueCssModule from "@inetss/vite-plugin-vue-css-module"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+
   devtools: { enabled: false },
 
   app: {
@@ -11,7 +15,7 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: "2024-08-09",
+  compatibilityDate: "2025-03-17",
 
   modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
   ssr: false,
