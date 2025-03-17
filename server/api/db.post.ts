@@ -1,4 +1,4 @@
-import { run } from "../db/rake"
+import { run } from "~~/server/db/rake"
 
 /**
  * Run rake via http.
