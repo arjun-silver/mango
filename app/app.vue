@@ -2,7 +2,7 @@
 import { TonConnectUIProvider } from "@townsquarelabs/ui-vue"
 
 const options = {
-  manifestUrl: "https://arjun-crypto-dev.github.io/mango/ton-connect-manifest.json",
+  manifestUrl: "https://arjun-silver.github.io/mango/ton-connect-manifest.json",
 }
 </script>
 

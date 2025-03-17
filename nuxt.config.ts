@@ -45,7 +45,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Token for accessing admin API
     adminToken: "",
-    baseUrl: "https://arjun-crypto-dev.github.io/mango/",
+    baseUrl: "https://arjun-silver.github.io/mango/",
     database: {
       url: "postgres://localhost/mango",
       log: false,
