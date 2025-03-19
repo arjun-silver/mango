@@ -7,6 +7,7 @@ async function create_invoice_link() {
   link.value = data
   window.open(data)
 }
+create_invoice_link()
 </script>
 
 <template lang="pug">
