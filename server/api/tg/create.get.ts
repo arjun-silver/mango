@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
     "payload",
     "",
     "XTR",
-    [{ label: "Product", amount: 1000 }],
+    [{ label: "Product", amount: 1 }],
   )
   return invoiceLink
 })
