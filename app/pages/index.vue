@@ -1,6 +1,7 @@
 <script setup lang="ts">
 async function create_invoice_link() {
-  await $fetch("/api/tg/create")
+  const data = await $fetch("/api/tg/create")
+  window.open(data)
 }
 </script>
 
