@@ -5,8 +5,8 @@ const score = ref(0)
 const energy_left = ref(70)
 
 function update_score() {
-  score.value += 10
   if (energy_left.value > 0) {
+    score.value += 10
     energy_left.value -= 1
   }
 }
