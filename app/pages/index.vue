@@ -3,11 +3,18 @@ import { OIcon } from "@oruga-ui/oruga-next"
 
 const score = ref(0)
 const energy_left = ref(70)
+
+function update_score() {
+  score.value += 10
+  if (energy_left.value > 0) {
+    energy_left.value -= 1
+  }
+}
 </script>
 
 <template lang="pug">
 .score $MANGO: {{ score }}
-.mango(@click="score += 10, energy_left -= 1") 🥭
+img.mango(src="/assets/mango.svg" @click="update_score")
 .energy
   .lightning ⚡
   .energy-bar
@@ -27,18 +34,11 @@ const energy_left = ref(70)
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 300px;
   transform: translate(-50%, -50%);
-  font-size: 250px;
 
   &:active {
     transform: translate(-50%, -50%) scale(1.02);
-    transition: transform 0.1s linear;
-  }
-
-  &:active:after {
-    content: "";
-    display: block;
-    transform: scale(1);
     transition: transform 0.1s linear;
   }
 }
@@ -46,46 +46,51 @@ const energy_left = ref(70)
 .energy {
   position: fixed;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   left: 0;
   bottom: 80px;
   height: 80px;
   width: 100%;
-}
-
-.energy-bar {
-  flex-grow: 1;
+  gap: 20px;
 }
 
 .lightning {
   font-size: 50px;
+  margin-left: 20px;
+}
+
+.energy-bar {
+  position: relative;
+  flex-grow: 1;
+  max-width: 300px;
 }
 
 .energy-total {
-  position: absolute;
   background-color: #d9d9d9;
   height: 10px;
-  width: 70%;
+  width: 100%;
   border-radius: 45px;
 }
 
 .energy-left {
   position: absolute;
+  top: 0;
+  left: 0;
   background-color: #dc7d33;
   height: 10px;
   border-radius: 45px;
+  transition: width 0.3s ease-out;
 }
 
 .shop-button {
+  margin-right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-color: rgba($color: #ec8a3d, $alpha: 0.2);
   width: 50px;
   height: 50px;
   border-radius: 10px;
+  background-color: rgba(236, 138, 61, 0.2);
 }
 </style>
