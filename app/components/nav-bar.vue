@@ -8,13 +8,13 @@ const activeTab = ref("/")
 .nav-bar
   .tab(@click="activeTab = 'home'; $router.push('/')")
     .o-icon-wrapper(:class="{ active: activeTab === 'home' }")
-      o-icon(pack="mdi" icon="home-outline" size="large")
+      o-icon(pack="mdi" icon="home-outline" size="medium")
   .tab(@click="activeTab = 'frens'; $router.push('/frens')")
     .o-icon-wrapper(:class="{ active: activeTab === 'frens' }")
-      o-icon(pack="mdi" icon="account-group-outline" size="large")
+      o-icon(pack="mdi" icon="account-group-outline" size="medium")
   .tab(@click="activeTab = 'tasks'; $router.push('/tasks')")
     .o-icon-wrapper(:class="{ active: activeTab === 'tasks' }")
-      o-icon(pack="mdi" icon="list-box-outline" size="large")
+      o-icon(pack="mdi" icon="list-box-outline" size="medium")
 </template>
 
 <style lang="scss">
@@ -27,7 +27,7 @@ const activeTab = ref("/")
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 80px;
 }
 
 .o-icon-wrapper {
@@ -35,8 +35,8 @@ const activeTab = ref("/")
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 80px;
 
   &::before {
     content: "";
@@ -44,8 +44,8 @@ const activeTab = ref("/")
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background-color: rgba(236, 138, 61, 0.2);
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -59,9 +59,6 @@ const activeTab = ref("/")
 .o-icon {
   position: relative;
   z-index: 1;
-  font-size: 50px;
-  width: 50px;
-  height: 50px;
 
   .active & {
     color: #dc7c33;
