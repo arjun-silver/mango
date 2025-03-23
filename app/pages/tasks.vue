@@ -1,3 +1,3 @@
 <template lang="pug">
-pre home page
+pre tasks page
 </template>

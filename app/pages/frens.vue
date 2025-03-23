@@ -1,3 +1,3 @@
 <template lang="pug">
-pre home page
+pre friends page
 </template>

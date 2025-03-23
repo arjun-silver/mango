@@ -3,7 +3,6 @@
 
 <template lang="pug">
 .layout
-  bubbles
   .main
     .page: nuxt-page
   nav-bar
@@ -11,6 +10,7 @@
 
 <style module lang="scss">
 body {
+  background-color: #f1f1f1;
   background-size: 400%;
   overflow: hidden;
 }

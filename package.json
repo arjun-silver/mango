@@ -17,6 +17,7 @@
     "db": "curl localhost:3000/mango/api/db -d"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@oruga-ui/oruga-next": "0.9.0-pre.1",
     "@oruga-ui/theme-oruga": "^0.4.1",
     "advisory-lock": "^2.0.0",
