@@ -36,7 +36,7 @@ function change_status(task: Task) {
     div(v-else) {{ task.status === "incomplete" ? "start" : "done" }}
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .task {
   display: flex;
   flex-direction: row;
