@@ -32,6 +32,13 @@ export default defineNuxtConfig({
     plugins: [
       vueCssModule({ attrName: "mclass", pugClassLiterals: true }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: "@use '~/styles/colors.scss' as *;",
+        },
+      },
+    },
   },
 
   css: [

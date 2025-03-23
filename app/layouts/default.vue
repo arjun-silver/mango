@@ -10,7 +10,7 @@
 
 <style module lang="scss">
 body {
-  background-color: #f1f1f1;
+  background-color: $background;
   background-size: 400%;
   overflow: hidden;
 }

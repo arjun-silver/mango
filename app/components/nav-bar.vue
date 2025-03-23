@@ -19,7 +19,7 @@ const activeTab = ref("home")
 
 <style lang="scss">
 .nav-bar {
-  background-color: #fff;
+  background-color: white;
   position: fixed;
   display: flex;
   justify-content: space-around;
@@ -46,7 +46,7 @@ const activeTab = ref("home")
     transform: translate(-50%, -50%) scale(0);
     width: 60px;
     height: 60px;
-    background-color: rgba(236, 138, 61, 0.2);
+    background-color: $secondary;
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
@@ -61,7 +61,7 @@ const activeTab = ref("home")
   z-index: 1;
 
   .active & {
-    color: #dc7c33;
+    color: $primary;
   }
 }
 </style>

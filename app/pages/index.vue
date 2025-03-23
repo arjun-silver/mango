@@ -83,7 +83,7 @@ img.mango(src="/assets/mango.svg" @click="update_score")
 }
 
 .energy-total {
-  background-color: #d9d9d9;
+  background-color: $light-gray;
   height: 10px;
   width: 100%;
   border-radius: 45px;
@@ -93,7 +93,7 @@ img.mango(src="/assets/mango.svg" @click="update_score")
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #dc7d33;
+  background-color: $primary;
   height: 10px;
   border-radius: 45px;
   transition: width 0.3s ease-out;
@@ -102,7 +102,7 @@ img.mango(src="/assets/mango.svg" @click="update_score")
 .energy-counter {
   text-align: left;
   font-family: "Chivo Mono", monospace;
-  color: #898989;
+  color: $text-gray;
 }
 
 .shop-button {
@@ -113,6 +113,6 @@ img.mango(src="/assets/mango.svg" @click="update_score")
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background-color: rgba(236, 138, 61, 0.2);
+  background-color: $secondary;
 }
 </style>
