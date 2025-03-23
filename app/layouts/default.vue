@@ -20,6 +20,8 @@ body {
   width: 100%;
   background-color: inherit;
   flex-direction: column;
+  margin-top: 10svh;
+  align-items: center;
 }
 
 .main {
