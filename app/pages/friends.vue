@@ -10,6 +10,10 @@ const friends = ref<Friend[]>([{ name: "@ArjunSilver" }, { name: "@RohanGold" },
 function copy_link() {
   navigator.clipboard.writeText("https://t.me/mango_token_bot/app")
 }
+
+function share() {
+  window.open("https://t.me/share/url?url=https://t.me/mango_token_bot/app", "_blank")
+}
 </script>
 
 <template lang="pug">
@@ -22,7 +26,7 @@ function copy_link() {
       .invite-label Invite a friend
       .invite-description +3000 for you and your friend
   .button-container
-    .invite-button Invite a friend
+    .invite-button(@click="share") Invite a friend
     .copy-button(@click="copy_link")
       o-icon(pack="mdi" icon="content-copy")
   .friend-list
