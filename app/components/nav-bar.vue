@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { OIcon } from "@oruga-ui/oruga-next"
 
-const activeTab = ref("home")
+const route = useRoute()
 </script>
 
 <template lang="pug">
 .nav-bar
-  .tab(@click="activeTab = 'home'; $router.push('/')")
-    .o-icon-wrapper(:class="{ active: activeTab === 'home' }")
+  .tab(@click="$router.push('/')")
+    .o-icon-wrapper(:class="{ active: route.path === '/' }")
       o-icon(pack="mdi" icon="home-outline" size="medium")
-  .tab(@click="activeTab = 'frens'; $router.push('/frens')")
-    .o-icon-wrapper(:class="{ active: activeTab === 'frens' }")
+  .tab(@click="$router.push('/frens')")
+    .o-icon-wrapper(:class="{ active: route.path === '/frens' }")
       o-icon(pack="mdi" icon="account-group-outline" size="medium")
-  .tab(@click="activeTab = 'tasks'; $router.push('/tasks')")
-    .o-icon-wrapper(:class="{ active: activeTab === 'tasks' }")
+  .tab(@click="$router.push('/tasks')")
+    .o-icon-wrapper(:class="{ active: route.path === '/tasks' }")
       o-icon(pack="mdi" icon="list-box-outline" size="medium")
 </template>
 
