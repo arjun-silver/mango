@@ -22,7 +22,7 @@ setInterval(() => {
 .score $MANGO: {{ score }}
 img.mango(src="/assets/mango.svg" @click="update_score")
 .energy
-  .lightning ⚡
+  img.lightning(src="/assets/lightning.svg")
   .energy-bar-container
     .energy-bar
       .energy-total
@@ -64,7 +64,7 @@ img.mango(src="/assets/mango.svg" @click="update_score")
 }
 
 .lightning {
-  font-size: 50px;
+  width: 50px;
   margin-left: 20px;
 }
 
