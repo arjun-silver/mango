@@ -2,7 +2,7 @@
 import { OIcon } from "@oruga-ui/oruga-next"
 
 const score = ref(0)
-const energy_left = ref(70)
+const energy_left = ref(100)
 
 function update_score() {
   if (energy_left.value > 0) {
@@ -10,6 +10,12 @@ function update_score() {
     energy_left.value -= 1
   }
 }
+
+setInterval(() => {
+  if (energy_left.value < 100) {
+    energy_left.value += 1
+  }
+}, 1500)
 </script>
 
 <template lang="pug">
@@ -17,9 +23,11 @@ function update_score() {
 img.mango(src="/assets/mango.svg" @click="update_score")
 .energy
   .lightning ⚡
-  .energy-bar
-    .energy-total
-    .energy-left(:style="{ width: `${energy_left}%` }")
+  .energy-bar-container
+    .energy-bar
+      .energy-total
+      .energy-left(:style="{ width: `${energy_left}%` }")
+    .energy-counter {{ `${energy_left}/100` }}
   .shop-button
     o-icon(pack="mdi" icon="storefront-outline" size="medium")
 </template>
@@ -60,10 +68,18 @@ img.mango(src="/assets/mango.svg" @click="update_score")
   margin-left: 20px;
 }
 
-.energy-bar {
-  position: relative;
+.energy-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   flex-grow: 1;
   max-width: 300px;
+}
+
+.energy-bar {
+  position: relative;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
 .energy-total {
@@ -81,6 +97,12 @@ img.mango(src="/assets/mango.svg" @click="update_score")
   height: 10px;
   border-radius: 45px;
   transition: width 0.3s ease-out;
+}
+
+.energy-counter {
+  text-align: left;
+  font-family: "Chivo Mono", monospace;
+  color: #898989;
 }
 
 .shop-button {
