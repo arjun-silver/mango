@@ -1,1 +1,40 @@
 @import "@mdi/font/css/materialdesignicons.min.css";
+
+//
+// Partial import of @oruga-ui/theme-oruga/dist/scss/oruga-build.scss
+//
+
+$prefix: "o-";
+
+// Relevant rules from "@oruga-ui/theme-oruga/dist/scss/utils/base"
+
+.o-noscroll {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.o-clipped {
+  overflow: hidden;
+}
+
+@import "@oruga-ui/theme-oruga/dist/scss/components/modal";
+
+.o-modal {
+  &__overlay {
+    background: rgba(217, 217, 217, 0.4);
+    backdrop-filter: blur(3px);
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100svh;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-y: hidden;
+  }
+}
