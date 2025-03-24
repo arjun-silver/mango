@@ -8,10 +8,10 @@ interface Task {
 }
 
 const tasks = ref<Task[]>([
-  { label: "Task name", amount: 4200, status: "incomplete" },
-  { label: "Join mango", amount: 4200, status: "incomplete" },
+  { label: "Join mango (Telegram)", amount: 4200, status: "incomplete" },
+  { label: "Join mango (X)", amount: 4200, status: "incomplete" },
+  { label: "Join mango (Facebook)", amount: 4200, status: "done" },
   { label: "Join hashcat", amount: 4200, status: "incomplete" },
-  { label: "Task name", amount: 4200, status: "done" },
   { label: "Task name", amount: 4200, status: "done" },
 ])
 
