@@ -20,7 +20,8 @@ setInterval(() => {
 
 <template lang="pug">
 .score $MANGO: {{ score }}
-img.mango(src="/assets/mango.svg" @click="update_score")
+.mango-wrapper
+  img.mango(src="/assets/mango.svg" @click="update_score")
 .energy
   img.lightning(src="/assets/lightning.svg")
   .energy-bar-container
@@ -38,17 +39,31 @@ img.mango(src="/assets/mango.svg" @click="update_score")
   font-size: 35px;
 }
 
-.mango {
+.mango-wrapper {
   position: fixed;
   top: 50%;
   left: 50%;
   width: 300px;
   transform: translate(-50%, -50%);
+  animation: move_up_down 3s ease-in-out infinite alternate;
 
-  &:active {
-    transform: translate(-50%, -50%) scale(1.02);
+  &:active .mango {
+    transform: scale(1.02);
     transition: transform 0.1s linear;
   }
+  @keyframes move_up_down {
+    0% {
+      transform: translate(-50%, calc(-50% - 10px));
+    }
+    100% {
+      transform: translate(-50%, calc(-50% + 10px));
+    }
+  }
+}
+
+.mango {
+  width: 100%;
+  height: 100%;
 }
 
 .energy {
