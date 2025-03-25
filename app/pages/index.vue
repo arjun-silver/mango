@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// We need this to use Adsgram
+// eslint-disable-next-line unused-imports/no-unused-vars
 const { useWebApp } = await import("vue-tg")
 const score = ref(0)
 const energy_left = ref(100)
