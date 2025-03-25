@@ -21,7 +21,7 @@ const emit = defineEmits(["updateScore"])
   animation: move_up_down 3s ease-in-out infinite alternate;
 
   &:active .mango {
-    transform: scale(1.02);
+    transform: scale(1.05);
     transition: transform 0.1s linear;
   }
 
