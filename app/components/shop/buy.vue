@@ -21,7 +21,7 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
     .description {{ props.selectedItem?.description }}
     .buttons
       .button(style="width: 100px" @click="active = false") buy
-      .button(style="width: 100px" @click="showAd; active = false") watch ad
+      .button(style="width: 100px" @click="showAd") watch ad
 </template>
 
 <style lang="scss" scoped>
