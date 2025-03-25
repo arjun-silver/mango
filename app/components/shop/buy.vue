@@ -45,7 +45,7 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
 }
 
 .item-avatar {
-  font-size: 60px;
+  font-size: 50px;
   text-align: center;
   margin-top: 20px;
 }
