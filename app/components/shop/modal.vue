@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { OModal } from "@oruga-ui/oruga-next"
 
+const props = defineProps<{ showAd: () => Promise<void> }>()
+
 interface Item {
   name: string
   avatar: string
@@ -38,7 +40,7 @@ o-modal(v-model:active="is_active" teleport close-icon="" @click="is_active = fa
       @buy="handleItemBuy(item)"
     )
 
-shop-buy(v-model:active="show_buy_modal" :selected-item="selected_item")
+shop-buy(v-model:active="show_buy_modal" :selected-item="selected_item" :show-ad="showAd")
 </template>
 
 <style lang="scss" scoped>

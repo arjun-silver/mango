@@ -3,6 +3,16 @@ const score = ref(0)
 const energy_left = ref(100)
 const show_shop_modal = ref(false)
 
+function onReward() {
+  score.value = score.value * 2
+}
+function onError(result: ShowPromiseResult) {
+  // eslint-disable-next-line no-console
+  console.log(JSON.stringify(result, null, 4))
+}
+
+const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
+
 function update_score() {
   if (energy_left.value > 0) {
     score.value += 10
@@ -27,7 +37,7 @@ function open_modal() {
   mango(:score="score" @click="update_score")
   energy-bar(:energy-left="energy_left")
     shop-button(@open-modal="open_modal")
-  shop-modal(v-model:active="show_shop_modal")
+  shop-modal(v-model:active="show_shop_modal" :show-ad="showAd")
 </template>
 
 <style lang="scss" module>
