@@ -23,7 +23,7 @@
 }
 
 .avatar {
-  font-size: 70px;
+  font-size: 55px;
 }
 
 .text-container {
