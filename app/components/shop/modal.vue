@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import { OModal } from "@oruga-ui/oruga-next"
+import { OIcon, OModal } from "@oruga-ui/oruga-next"
 
 interface Item {
   name: string
   avatar: string
   price: number
   label: string
+  description: string
 }
 
 const is_active = defineModel<boolean>("active")
 
+const show_buy_modal = ref(false)
+
+const selected_item = ref<Item | null>(null)
+
 const items = ref<Item[]>([
-  { name: "Power up", avatar: "️️🏎️", price: 4000, label: "buy" },
-  { name: "Regenerate", avatar: "⚡", price: 4000, label: "buy" },
-  { name: "Capacity", avatar: "🔋", price: 4000, label: "3/5" },
-  { name: "Regeneration", avatar: "⏳", price: 4000, label: "2/5" },
-  { name: "Tap profit", avatar: "💪", price: 4000, label: "5/5" },
+  { name: "Power up", avatar: "️️🏎️", price: 4000, label: "buy", description: "increase your profit per tap for 5 seconds?" },
+  { name: "Regenerate", avatar: "⚡", price: 4000, label: "buy", description: "regenerate your energy?" },
+  { name: "Capacity", avatar: "🔋", price: 4000, label: "3/5", description: "increase your capacity by 10%?" },
+  { name: "Regeneration", avatar: "⏳", price: 4000, label: "2/5", description: "increase your regeneration speed by 10%?" },
+  { name: "Tap profit", avatar: "💪", price: 4000, label: "5/5", description: "Increase your tap profit by 10%?" },
 ])
 </script>
 
@@ -28,7 +33,16 @@ o-modal(v-model:active="is_active" teleport close-icon="" @click="is_active = fa
       .text-container
         .name {{ item.name }}
         .price {{ item.price }} $MANGO
-      .button(:class="item.label === '5/5' ? 'sold' : ''") {{ item.label }}
+      .button(:class="item.label === '5/5' ? 'sold' : ''" @click="show_buy_modal = true; selected_item = item") {{ item.label }}
+  o-modal(v-model:active="show_buy_modal" teleport close-icon="" @click="show_buy_modal = false")
+    .buy-content(@click.stop.prevent)
+      .top-section
+        .item-avatar {{ selected_item?.avatar }}
+        o-icon.cancel-icon(pack="mdi" icon="close" size="medium" @click="show_buy_modal = false")
+      .description {{ selected_item?.description }}
+      .buttons
+        .button(style="width: 100px" @click="show_buy_modal = false") buy
+        .button(style="width: 100px" @click="show_buy_modal = false") whatch ad
 </template>
 
 <style lang="scss" scoped>
@@ -101,5 +115,50 @@ o-modal(v-model:active="is_active" teleport close-icon="" @click="is_active = fa
   &.sold {
     background-color: $secondary;
   }
+}
+
+.buy-content {
+  background-color: $background;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  width: 80%;
+  height: 25svh;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.item-avatar {
+  margin-left: auto;
+  font-size: 60px;
+}
+
+.description {
+  font-family: "Chivo Mono", monospace;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  margin-top: auto;
+  margin-bottom: 20px;
 }
 </style>
