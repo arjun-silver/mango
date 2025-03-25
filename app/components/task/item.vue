@@ -40,7 +40,10 @@ function handleTaskAction(task: Task) {
       task.status = "incomplete"
     }, 1000)
     if (task.current >= task.total) {
-      task.status = "done"
+      task.status = "checking"
+      setTimeout(() => {
+        task.status = "done"
+      }, 1000)
     }
   }
 }
