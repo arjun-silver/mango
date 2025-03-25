@@ -3,15 +3,45 @@ import { OIcon } from "@oruga-ui/oruga-next"
 
 import type { Task } from "~/task"
 
-const props = defineProps<{
-  task: Task
-}>()
+defineProps<{ task: Task }>()
 
-const emit = defineEmits(["changeStatus"])
+function change_status(task: Task) {
+  if (task.status === "incomplete") {
+    task.status = "checking"
 
-function handleClick() {
-  if (props.task.status === "incomplete") {
-    emit("changeStatus", props.task)
+    setTimeout(() => {
+      task.status = "done"
+    }, 3000)
+  }
+}
+
+function taskLabel(task: Task) {
+  if (task.type === "subscribe") {
+    return task.status === "done" ? "done" : "start"
+  }
+
+  if (task.type === "progress") {
+    return `${task.current}/${task.total}`
+  }
+
+  return "start"
+}
+
+function handleTaskAction(task: Task) {
+  if (task.type === "subscribe" && task.url) {
+    window.open(task.url, "_blank")
+    change_status(task)
+  }
+
+  if (task.type === "progress") {
+    task.status = "checking"
+    task.current++
+    setTimeout(() => {
+      task.status = "incomplete"
+    }, 1000)
+    if (task.current >= task.total) {
+      task.status = "done"
+    }
   }
 }
 </script>
@@ -22,9 +52,9 @@ function handleClick() {
   .text-container
     .label {{ task.label }}
     .amount {{ `+${task.amount} $MANGO` }}
-  .button(:class="task.status" @click="handleClick")
+  .button(:class="[task.status, { completed: task.type === 'progress' && task.current === task.total }]" @click="handleTaskAction(task)")
     o-icon.loading(v-if="task.status === 'checking'" pack="mdi" icon="loading" size="small")
-    div(v-else) {{ task.status === "incomplete" ? "start" : "done" }}
+    div(v-else) {{ taskLabel(task) }}
 </template>
 
 <style scoped lang="scss">
@@ -88,6 +118,10 @@ function handleClick() {
 
   &.checking {
     background-color: $light-gray;
+  }
+
+  &.completed {
+    background-color: $secondary;
   }
 }
 

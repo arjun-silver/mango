@@ -1,16 +1,12 @@
 <script setup lang="ts">
-interface Task {
-  label: string
-  amount: number
-  status: string
-}
+import type { Task } from "~/task"
 
 const tasks = ref<Task[]>([
-  { label: "Join mango (Telegram)", amount: 4200, status: "incomplete" },
-  { label: "Join mango (X)", amount: 4200, status: "incomplete" },
-  { label: "Join mango (Facebook)", amount: 4200, status: "done" },
-  { label: "Join hashcat", amount: 4200, status: "incomplete" },
-  { label: "Task name", amount: 4200, status: "done" },
+  { label: "Join mango (Telegram)", amount: 4200, status: "incomplete", type: "subscribe", url: "https://t.me/mangotoken_bot" },
+  { label: "Join mango (X)", amount: 4200, status: "incomplete", type: "subscribe", url: "https://t.me/mangotoken_bot" },
+  { label: "Join mango (Facebook)", amount: 4200, status: "done", type: "subscribe", url: "https://t.me/mangotoken_bot" },
+  { label: "Join hashcat", amount: 4200, status: "incomplete", type: "subscribe", url: "https://t.me/mangotoken_bot" },
+  { label: "Invite friends", amount: 4200, status: "incomplete", type: "progress", current: 1, total: 5 },
 ])
 
 function changeStatus(task: Task) {
