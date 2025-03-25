@@ -15,10 +15,9 @@ o-icon.cancel-icon(
 
 <style lang="scss" scoped>
 .cancel-icon {
-  margin-left: auto;
-  margin-right: 20px;
-  margin-top: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
   margin-bottom: 20px;
-  cursor: pointer;
 }
 </style>

@@ -43,6 +43,7 @@ shop-buy(v-model:active="show_buy_modal" :selected-item="selected_item")
 
 <style lang="scss" scoped>
 .content {
+  position: relative;
   background-color: $background;
   display: flex;
   flex-direction: column;
@@ -51,6 +52,7 @@ shop-buy(v-model:active="show_buy_modal" :selected-item="selected_item")
   border-radius: 10px;
   width: 80%;
   height: 50svh;
+  padding-top: 60px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 </style>

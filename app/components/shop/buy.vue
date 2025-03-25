@@ -16,7 +16,7 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   .buy-content(@click.stop.prevent)
     .top-section
       .item-avatar {{ props.selectedItem?.avatar }}
-      CloseButton(@click="active = false")
+      close-button(@click="active = false")
     .description {{ props.selectedItem?.description }}
     .buttons
       .button(style="width: 100px" @click="active = false") buy
@@ -34,20 +34,20 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   width: 80%;
   height: 25svh;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  position: relative;
 }
 
 .top-section {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .item-avatar {
-  margin-left: auto;
   font-size: 60px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .description {
@@ -56,6 +56,9 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   margin-right: 20px;
   font-size: 17px;
   text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .buttons {
@@ -65,7 +68,6 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   justify-content: center;
   width: 100%;
   gap: 20px;
-  margin-top: auto;
   margin-bottom: 20px;
 }
 
