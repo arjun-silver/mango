@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { OIcon, OModal } from "@oruga-ui/oruga-next"
+import { OIcon } from "@oruga-ui/oruga-next"
 
 const score = ref(0)
 const energy_left = ref(100)
@@ -24,106 +24,19 @@ function open_modal() {
 </script>
 
 <template lang="pug">
-.score $MANGO: {{ score }}
-.mango-wrapper
-  img.mango(src="/assets/mango.svg" @click="update_score")
-.energy
-  img.lightning(src="/assets/lightning.svg")
-  .energy-bar-container
-    .energy-bar
-      .energy-total
-      .energy-left(:style="{ width: `${energy_left}%` }")
-    .energy-counter {{ `${energy_left}/100` }}
-  .shop-button
-    o-icon(pack="mdi" icon="storefront-outline" size="medium" @click="open_modal")
-shop-modal(v-model:active="show_shop_modal")
+.page
+  .score $MANGO: {{ score }}
+  mango(:score="score" @click="update_score")
+  energy-bar(:energy-left="energy_left")
+    .shop-button
+      o-icon(pack="mdi" icon="storefront-outline" size="medium" @click="open_modal")
+  shop-modal(v-model:active="show_shop_modal")
 </template>
 
 <style lang="scss" module>
 .score {
   font-family: "Chivo Mono", monospace;
   font-size: 35px;
-}
-
-.mango-wrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  transform: translate(-50%, -50%);
-  animation: move_up_down 3s ease-in-out infinite alternate;
-
-  &:active .mango {
-    transform: scale(1.02);
-    transition: transform 0.1s linear;
-  }
-  @keyframes move_up_down {
-    0% {
-      transform: translate(-50%, calc(-50% - 10px));
-    }
-    100% {
-      transform: translate(-50%, calc(-50% + 10px));
-    }
-  }
-}
-
-.mango {
-  width: 100%;
-  height: 100%;
-}
-
-.energy {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  left: 0;
-  bottom: 80px;
-  height: 80px;
-  width: 100%;
-  gap: 20px;
-}
-
-.lightning {
-  width: 50px;
-  margin-left: 20px;
-}
-
-.energy-bar-container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  flex-grow: 1;
-  max-width: 300px;
-}
-
-.energy-bar {
-  position: relative;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-.energy-total {
-  background-color: $light-gray;
-  height: 10px;
-  width: 100%;
-  border-radius: 45px;
-}
-
-.energy-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: $primary;
-  height: 10px;
-  border-radius: 45px;
-  transition: width 0.3s ease-out;
-}
-
-.energy-counter {
-  text-align: left;
-  font-family: "Chivo Mono", monospace;
-  color: $text-gray;
 }
 
 .shop-button {
