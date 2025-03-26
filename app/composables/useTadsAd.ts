@@ -66,6 +66,7 @@ export function useTadsAd(options: UseTadsAdOptions) {
     } catch (err) {
       console.log("oh no! some errors!")
       error.value = err as Error
+      console.log(error.value)
       defaultCallbacks.onAdsNotFound()
     } finally {
       isShowing.value = false
