@@ -54,6 +54,7 @@ export function useTadsAd(options: UseTadsAdOptions) {
   }
 
   const showAd = async () => {
+    console.log("trying to show the ad")
     if (!adController.value) {
       return
     }
