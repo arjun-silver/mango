@@ -5,22 +5,10 @@ const options = {
   manifestUrl: "https://arjun-silver.github.io/mango/ton-connect-manifest.json",
 }
 
-useHead({
-  script: [
-    {
-      src: "https://richinfo.co/richpartners/telegram/js/tg-ob.js",
-    },
-    {
-      innerHTML: `
-        window.TelegramAdsController = new TelegramAdsController();
-        window.TelegramAdsController.initialize({
-          pubId: "966020",
-          appId: "1877",
-        });
-      `,
-      type: "text/javascript",
-    },
-  ],
+window.telegramAdsController = new telegramAdsController()
+window.telegramAdsController.initialize({
+  pubId: "966020",
+  appId: "1877",
 })
 </script>
 
