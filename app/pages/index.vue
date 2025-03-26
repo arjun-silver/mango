@@ -1,26 +1,18 @@
 <script setup lang="ts">
 // We need this to use Adsgram
+
+import { useTadsAd } from "~/composables/useTadsAd"
+
 // eslint-disable-next-line unused-imports/no-unused-vars
 const { useWebApp } = await import("vue-tg")
 const score = ref(0)
 const energy_left = ref(100)
 const show_shop_modal = ref(false)
 
-function onReward() {
-  score.value = score.value * 2
-}
-function onError(result: ShowPromiseResult) {
-  // eslint-disable-next-line no-console
-  console.log(JSON.stringify(result, null, 4))
-}
+const { showAd } = useTadsAd({ widgetId: 401 })
 
 // const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
-function showAd() {
-  return new Promise((_) => {
-    setTimeout(() => {
-    }, 1000)
-  })
-}
+
 function update_score() {
   if (energy_left.value > 0) {
     score.value += 10

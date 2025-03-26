@@ -8,7 +8,6 @@ const options = {
 
 <template lang="pug">
 ton-connect-u-i-provider(:options="options")
-  tads-me(:widget-id="401")
   nuxt-layout
     nuxt-page(id="tads-container-401")
 </template>
