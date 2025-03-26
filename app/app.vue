@@ -4,28 +4,11 @@ import { TonConnectUIProvider } from "@townsquarelabs/ui-vue"
 const options = {
   manifestUrl: "https://arjun-silver.github.io/mango/ton-connect-manifest.json",
 }
-
-useHead({
-  script: [
-    {
-      src: "https://richinfo.co/richpartners/telegram/js/tg-ob.js",
-    },
-    {
-      innerHTML: `
-        window.TelegramAdsController = new TelegramAdsController();
-        window.TelegramAdsController.initialize({
-          pubId: "966020",
-          appId: "1877",
-        });
-      `,
-      type: "text/javascript",
-    },
-  ],
-})
 </script>
 
 <template lang="pug">
 ton-connect-u-i-provider(:options="options")
+  tads-me(:widget-id="401")
   nuxt-layout
-    nuxt-page
+    nuxt-page(id="tads-container-401")
 </template>
