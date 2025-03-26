@@ -24,6 +24,7 @@ export function useAdsgram({ blockId, onReward, onError }: UseAdsgramParams): Us
   })
 
   const showAd = async () => {
+    console.log("trying to show the ad")
     if (AdControllerRef.value) {
       AdControllerRef.value
         .show()
