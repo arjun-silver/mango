@@ -32,7 +32,7 @@ function open_modal() {
 </script>
 
 <template lang="pug">
-.page
+.page(id="tads-container-401")
   .score $MANGO: {{ score }}
   mango(:score="score" @click="update_score")
   energy-bar(:energy-left="energy_left")
