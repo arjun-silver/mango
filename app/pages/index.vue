@@ -14,8 +14,13 @@ function onError(result: ShowPromiseResult) {
   console.log(JSON.stringify(result, null, 4))
 }
 
-const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
-
+// const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
+function showAd() {
+  return new Promise((_) => {
+    setTimeout(() => {
+    }, 1000)
+  })
+}
 function update_score() {
   if (energy_left.value > 0) {
     score.value += 10
