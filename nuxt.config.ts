@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/mango/",
     head: {
-      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }, { src: "https://richinfo.co/richpartners/telegram/js/tg-ob.js" }],
+      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }],
     },
   },
 
