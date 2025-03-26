@@ -9,14 +9,13 @@ useHead({
   script: [
     {
       src: "https://richinfo.co/richpartners/telegram/js/tg-ob.js",
-      defer: true,
     },
     {
       innerHTML: `
         window.TelegramAdsController = new TelegramAdsController();
         window.TelegramAdsController.initialize({
           pubId: "966020",
-          appId: "1876",
+          appId: "1877",
         });
       `,
       type: "text/javascript",
