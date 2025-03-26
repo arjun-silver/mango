@@ -55,13 +55,16 @@ export function useTadsAd(options: UseTadsAdOptions) {
 
   const showAd = async () => {
     console.log("trying to show the ad")
+    console.log(!adController.value)
     if (!adController.value) {
       return
     }
     try {
+      console.log("really trying!")
       isShowing.value = true
       await adController.value.showAd()
     } catch (err) {
+      console.log("oh no! some errors!")
       error.value = err as Error
       defaultCallbacks.onAdsNotFound()
     } finally {
