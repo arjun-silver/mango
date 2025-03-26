@@ -9,7 +9,7 @@ const score = ref(0)
 const energy_left = ref(100)
 const show_shop_modal = ref(false)
 
-const { showAd } = useTadsAd({ widgetId: 401 })
+const { showAd } = useTadsAd({ widgetId: "401" })
 
 // const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
 
