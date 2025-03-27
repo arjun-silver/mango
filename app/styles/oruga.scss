@@ -20,6 +20,7 @@ $prefix: "o-";
   overflow: hidden;
 }
 
+// TODO: remove deprecated import
 @import "@oruga-ui/theme-oruga/dist/scss/components/modal";
 
 .o-modal {
