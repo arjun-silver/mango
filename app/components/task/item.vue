@@ -5,7 +5,7 @@ import type { Task } from "~/task"
 
 defineProps<{ task: Task }>()
 
-function change_status(task: Task) {
+function changeStatus(task: Task) {
   if (task.status === "incomplete") {
     task.status = "checking"
 
@@ -30,7 +30,7 @@ function taskLabel(task: Task) {
 function handleTaskAction(task: Task) {
   if (task.type === "subscribe" && task.url) {
     window.open(task.url, "_blank")
-    change_status(task)
+    changeStatus(task)
   }
 
   if (task.type === "progress") {

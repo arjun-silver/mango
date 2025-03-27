@@ -1,43 +1,46 @@
 <script setup lang="ts">
 // We need this to use Adsgram
-
-import { useTadsAd } from "~/composables/useTadsAd"
-
 // eslint-disable-next-line unused-imports/no-unused-vars
 const { useWebApp } = await import("vue-tg")
 const score = ref(0)
-const energy_left = ref(100)
-const show_shop_modal = ref(false)
+const energyLeft = ref(100)
+const showShopModal = ref(false)
 
-const { showAd } = useTadsAd({ widgetId: 401, containerId: "tads-container-401" })
+function onReward() {
+  score.value *= 2
+}
 
-// const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
+function onError() {
+  console.error("error")
+}
 
-function update_score() {
-  if (energy_left.value > 0) {
+const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
+
+function updateScore() {
+  if (energyLeft.value > 0) {
     score.value += 10
-    energy_left.value -= 1
+    energyLeft.value -= 1
   }
 }
 
 setInterval(() => {
-  if (energy_left.value < 100) {
-    energy_left.value += 1
+  if (energyLeft.value < 100) {
+    energyLeft.value += 1
   }
 }, 1500)
 
-function open_modal() {
-  show_shop_modal.value = true
+function openModal() {
+  showShopModal.value = true
 }
 </script>
 
 <template lang="pug">
 .page(id="tads-container-401")
   .score $MANGO: {{ score }}
-  mango(:score="score" @click="update_score")
-  energy-bar(:energy-left="energy_left")
-    shop-button(@open-modal="open_modal")
-  shop-modal(v-model:active="show_shop_modal" :show-ad="showAd")
+  mango(:score="score" @click="updateScore")
+  energy-bar(:energy-left="energyLeft")
+    shop-button(@open-modal="openModal")
+  shop-modal(v-model:active="showShopModal" :show-ad="showAd")
 </template>
 
 <style lang="scss" module>

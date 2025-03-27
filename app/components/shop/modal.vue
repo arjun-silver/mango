@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { OModal } from "@oruga-ui/oruga-next"
 
-const props = defineProps<{ showAd: () => Promise<void> }>()
+defineProps<{ showAd: () => Promise<void> }>()
 
 interface Item {
   name: string
@@ -11,9 +11,9 @@ interface Item {
   description: string
 }
 
-const is_active = defineModel<boolean>("active")
-const show_buy_modal = ref(false)
-const selected_item = ref<Item | null>(null)
+const isActive = defineModel<boolean>("active")
+const showBuyModal = ref(false)
+const selectedItem = ref<Item | null>(null)
 
 const items = ref<Item[]>([
   { name: "Power up", avatar: "️️🏎️", price: 4000, label: "buy", description: "increase your profit per tap for 5 seconds?" },
@@ -24,15 +24,15 @@ const items = ref<Item[]>([
 ])
 
 function handleItemBuy(item: Item) {
-  selected_item.value = item
-  show_buy_modal.value = true
+  selectedItem.value = item
+  showBuyModal.value = true
 }
 </script>
 
 <template lang="pug">
-o-modal(v-model:active="is_active" teleport close-icon="" @click="is_active = false")
+o-modal(v-model:active="isActive" teleport close-icon="" @click="isActive = false")
   .content(@click.stop.prevent)
-    close-button(@click="is_active = false")
+    close-button(@click="isActive = false")
     shop-item(
       v-for="item in items"
       :key="item.name"
@@ -40,7 +40,7 @@ o-modal(v-model:active="is_active" teleport close-icon="" @click="is_active = fa
       @buy="handleItemBuy(item)"
     )
 
-shop-buy(v-model:active="show_buy_modal" :selected-item="selected_item" :show-ad="showAd")
+shop-buy(v-model:active="showBuyModal" :selected-item="selectedItem" :show-ad="showAd")
 </template>
 
 <style lang="scss" scoped>

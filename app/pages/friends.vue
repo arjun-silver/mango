@@ -5,7 +5,7 @@ interface Friend {
 
 const friends = ref<Friend[]>([{ name: "@ArjunSilver" }, { name: "@RohanGold" }, { name: "@RamanujanBronze" }])
 
-function copy_link() {
+function copyLink() {
   navigator.clipboard.writeText("https://t.me/mango_token_bot/app")
 }
 
@@ -19,7 +19,7 @@ function share() {
   .label Invite friends
   .description You and your friend will receive bonuses
   friend-badge
-  friend-buttons(@copy="copy_link" @share="share")
+  friend-buttons(@copy="copyLink" @share="share")
   friend-list(:friends="friends")
 </template>
 
