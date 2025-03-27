@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/mango/",
     head: {
-      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }, { src: "https://w.tads.me/widget.js" }],
+      script: [{ src: "https://telegram.org/js/telegram-web-app.js" }, , { src: "https://sad.adsgram.ai/js/sad.min.js" }],
     },
   },
 
