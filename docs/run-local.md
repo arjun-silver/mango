@@ -12,6 +12,12 @@ Install dependencies:
 pnpm i
 ```
 
+Setup project settings:
+
+```sh
+cp .env.sample .env
+```
+
 Launch:
 
 ```sh
