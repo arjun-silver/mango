@@ -35,7 +35,7 @@ function openModal() {
 </script>
 
 <template lang="pug">
-.page(id="tads-container-401")
+.page
   .score $MANGO: {{ score }}
   mango(:score="score" @click="updateScore")
   energy-bar(:energy-left="energyLeft")

@@ -9,5 +9,5 @@ const options = {
 <template lang="pug">
 ton-connect-u-i-provider(:options="options")
   nuxt-layout
-    nuxt-page(id="tads-container-401")
+    nuxt-page
 </template>
