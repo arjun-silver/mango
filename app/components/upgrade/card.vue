@@ -27,7 +27,7 @@ const emit = defineEmits(["buy"])
   justify-content: flex-start;
   border-radius: 10px;
   height: 200px;
-  width: 45%;
+  width: calc(50% - 10px);
   background: var(--light-gray);
   gap: 5px;
 }
