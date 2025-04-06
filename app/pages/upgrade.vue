@@ -32,7 +32,7 @@ const cards = ref([
   text-align: center;
   gap: 20px;
   padding: 20px 20px 100px;
-  height: calc(100vh - 60px);
+  height: 100vh;
   margin-bottom: 80px;
 }
 
@@ -54,6 +54,6 @@ const cards = ref([
   gap: 20px;
   max-height: 100vh;
   overflow-y: auto;
-  padding-bottom: 20px;
+  padding-bottom: 80px;
 }
 </style>

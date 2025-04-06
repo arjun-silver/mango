@@ -30,6 +30,7 @@ defineExpose({ activeTab })
 <style module lang="scss">
 .container {
   width: 90vw;
+  height: 50px;
   background: var(--light-gray);
   border-radius: 10px;
   font-size: 15px;
@@ -52,6 +53,7 @@ defineExpose({ activeTab })
   color: var(--text-gray);
   font-weight: 500;
   transition: color 0.3s ease;
+  text-align: center;
 
   &.active {
     color: white;
