@@ -24,11 +24,11 @@ const props = defineProps<{ energyLeft: number }>()
   height: 80px;
   width: 100%;
   gap: 20px;
+  padding: 0 20px;
 }
 
 .lightning {
   width: 50px;
-  margin-left: 20px;
 }
 
 .energy-bar-container {
