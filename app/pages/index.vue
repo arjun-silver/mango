@@ -1,20 +1,12 @@
 <script setup lang="ts">
+import { ShopModal } from "#components"
 // We need this to use Adsgram
 // eslint-disable-next-line unused-imports/no-unused-vars
 const { useWebApp } = await import("vue-tg")
 const score = ref(0)
 const energyLeft = ref(100)
-const showShopModal = ref(false)
 
-function onReward() {
-  score.value *= 2
-}
-
-function onError() {
-  console.error("error")
-}
-
-const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
+const openModal = useOpenModal()
 
 function updateScore() {
   if (energyLeft.value > 0) {
@@ -28,10 +20,6 @@ setInterval(() => {
     energyLeft.value += 1
   }
 }, 1500)
-
-function openModal() {
-  showShopModal.value = true
-}
 </script>
 
 <template lang="pug">
@@ -39,8 +27,7 @@ function openModal() {
   .score $MANGO: {{ score }}
   mango(:score="score" @click="updateScore")
   energy-bar(:energy-left="energyLeft")
-    shop-button(@open-modal="openModal")
-  shop-modal(v-model:active="showShopModal" :show-ad="showAd")
+    shop-button(@click="openModal(ShopModal)")
 </template>
 
 <style lang="scss" module>

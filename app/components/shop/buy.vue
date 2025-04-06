@@ -1,54 +1,47 @@
 <script setup lang="ts">
-import { OModal } from "@oruga-ui/oruga-next"
-
 const props = defineProps<{
   selectedItem?: {
     avatar: string
     description: string
   } | null
-  showAd: () => Promise<void>
 }>()
 
-const active = defineModel<boolean>("active")
+const emit = defineEmits<{
+  close: []
+}>()
+function onReward() {
+
+}
+
+function onError() {
+  console.error("error")
+}
+
+const { showAd } = useAdsgram({ blockId: "9237", onReward, onError })
 </script>
 
 <template lang="pug">
-o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
-  .buy-content(@click.stop.prevent)
-    .top-section
-      .item-avatar {{ props.selectedItem?.avatar }}
-      close-button(@click="active = false")
+ui-modal(@close="emit('close')")
+  template(#title)
+    .avatar {{ selectedItem?.avatar }}
+  .content
     .description {{ props.selectedItem?.description }}
     .buttons
-      .button(style="width: 100px" @click="active = false") buy
-      .button(style="width: 100px" @click="showAd") watch ad
+      ui-button.button(@click="emit('close')") buy
+      ui-button.button(@click="showAd") watch ad
 </template>
 
 <style lang="scss" scoped>
-.buy-content {
-  background-color: var(--background);
+.avatar {
+  font-size: 35px;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   border-radius: 10px;
-  width: 80%;
-  height: 25svh;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  position: relative;
-}
-
-.top-section {
-  display: flex;
-  width: 100%;
-  margin-bottom: 20px;
-  justify-content: center;
-}
-
-.item-avatar {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 20px;
 }
 
 .description {
@@ -66,24 +59,13 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .button {
-  font-family: "Chivo Mono", monospace;
-  font-size: 13px;
-  width: 100px;
-  height: 30px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primary);
-  color: white;
-  margin-left: auto;
-  margin-right: 20px;
+  width: 100%;
 }
 </style>
