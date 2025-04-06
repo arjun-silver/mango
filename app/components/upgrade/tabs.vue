@@ -2,7 +2,7 @@
 import { computed, ref } from "vue"
 
 const activeTab = defineModel<number>({ required: true })
-const tabs = ["Farm", "Export", "High-Tech"]
+const tabs = ["Farm", "Export", "Hi-Tech"]
 
 const sliderStyle = computed(() => ({
   left: `${(activeTab.value * 100) / 3}%`,
