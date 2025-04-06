@@ -13,7 +13,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: $light-gray;
+  background-color: var(--light-gray);
   min-width: 90%;
   height: 100px;
   gap: 20px;
@@ -41,6 +41,6 @@
 
 .invite-description {
   font-size: 13px;
-  color: $text-gray;
+  color: var(--text-gray);
 }
 </style>

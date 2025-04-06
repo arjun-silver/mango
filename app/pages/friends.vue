@@ -38,6 +38,6 @@ function share() {
 .description {
   font-family: "Chivo Mono", monospace;
   font-size: 15px;
-  color: $text-gray;
+  color: var(--text-gray);
 }
 </style>

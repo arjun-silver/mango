@@ -26,7 +26,7 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
 
 <style lang="scss" scoped>
 .buy-content {
-  background-color: $background;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +81,7 @@ o-modal(v-model:active="active" teleport close-icon="" @click="active = false")
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary;
+  background-color: var(--primary);
   color: white;
   margin-left: auto;
   margin-right: 20px;

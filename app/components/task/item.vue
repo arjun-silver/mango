@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { OIcon } from "@oruga-ui/oruga-next"
-
 import type { Task } from "~/task"
 
 defineProps<{ task: Task }>()
@@ -51,13 +49,12 @@ function handleTaskAction(task: Task) {
 
 <template lang="pug">
 .task
-  .avatar
-  .text-container
-    .label {{ task.label }}
-    .amount {{ `+${task.amount} $MANGO` }}
-  .button(:class="[task.status, { completed: task.type === 'progress' && task.current === task.total }]" @click="handleTaskAction(task)")
-    o-icon.loading(v-if="task.status === 'checking'" pack="mdi" icon="loading" size="small")
-    div(v-else) {{ taskLabel(task) }}
+  .info
+    .avatar
+    .text-container
+      .label {{ task.label }}
+      .amount {{ `+${task.amount} $MANGO` }}
+  ui-button(:loading="task.status === 'checking'" :disabled="task.status === 'done'" @click="handleTaskAction(task)") {{ taskLabel(task) }}
 </template>
 
 <style scoped lang="scss">
@@ -65,17 +62,25 @@ function handleTaskAction(task: Task) {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100svw;
+  gap: 20px 10px;
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: $light-gray;
+  background-color: var(--light-gray);
   margin-left: 20px;
 }
 
@@ -95,49 +100,6 @@ function handleTaskAction(task: Task) {
 .amount {
   font-family: "Chivo Mono", monospace;
   font-size: 13px;
-  color: $text-gray;
-}
-
-.button {
-  font-family: "Chivo Mono", monospace;
-  font-size: 13px;
-  width: 70px;
-  height: 30px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  margin-left: auto;
-  margin-right: 20px;
-
-  &.incomplete {
-    background-color: $primary;
-  }
-
-  &.done {
-    background-color: $secondary;
-  }
-
-  &.checking {
-    background-color: $light-gray;
-  }
-
-  &.completed {
-    background-color: $secondary;
-  }
-}
-
-.loading {
-  animation: rotate 1s infinite linear;
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  color: var(--text-gray);
 }
 </style>

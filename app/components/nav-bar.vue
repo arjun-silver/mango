@@ -49,7 +49,7 @@ const route = useRoute()
     transform: translate(-50%, -50%) scale(0);
     width: 60px;
     height: 60px;
-    background-color: $secondary;
+    background-color: var(--secondary);
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
@@ -64,7 +64,7 @@ const route = useRoute()
   z-index: 1;
 
   .active & {
-    color: $primary;
+    color: var(--primary);
   }
 }
 </style>

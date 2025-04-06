@@ -46,7 +46,7 @@ shop-buy(v-model:active="showBuyModal" :selected-item="selectedItem" :show-ad="s
 <style lang="scss" scoped>
 .content {
   position: relative;
-  background-color: $background;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;

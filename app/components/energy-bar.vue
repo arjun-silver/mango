@@ -46,7 +46,7 @@ const props = defineProps<{ energyLeft: number }>()
 }
 
 .energy-total {
-  background-color: $light-gray;
+  background-color: var(--light-gray);
   height: 10px;
   width: 100%;
   border-radius: 45px;
@@ -56,7 +56,7 @@ const props = defineProps<{ energyLeft: number }>()
   position: absolute;
   top: 0;
   left: 0;
-  background-color: $primary;
+  background-color: var(--primary);
   height: 10px;
   border-radius: 45px;
   transition: width 0.3s ease-out;
@@ -65,6 +65,6 @@ const props = defineProps<{ energyLeft: number }>()
 .energy-counter {
   text-align: left;
   font-family: "Chivo Mono", monospace;
-  color: $text-gray;
+  color: var(--text-gray);
 }
 </style>

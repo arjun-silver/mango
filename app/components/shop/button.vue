@@ -16,6 +16,6 @@ const emit = defineEmits(["openModal"])
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  background-color: $secondary;
+  background-color: var(--secondary);
 }
 </style>

@@ -58,7 +58,7 @@ function handleClick() {
 
 .price {
   font-size: 13px;
-  color: $text-gray;
+  color: var(--text-gray);
 }
 
 .button {
@@ -70,13 +70,13 @@ function handleClick() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $primary;
+  background-color: var(--primary);
   color: white;
   margin-left: auto;
   margin-right: 20px;
 
   &.sold {
-    background-color: $secondary;
+    background-color: var(--secondary);
   }
 }
 </style>
