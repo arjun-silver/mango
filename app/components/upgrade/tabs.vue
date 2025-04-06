@@ -30,10 +30,10 @@ defineExpose({ activeTab })
 <style module lang="scss">
 .container {
   width: 90vw;
-  height: 50px;
+  height: 40px;
   background: var(--light-gray);
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .tabs-wrapper {
@@ -41,6 +41,7 @@ defineExpose({ activeTab })
   display: flex;
   align-items: center;
   border-radius: 8px;
+  height: 40px;
 }
 
 .tab {
@@ -51,7 +52,6 @@ defineExpose({ activeTab })
   position: relative;
   z-index: 1;
   color: var(--text-gray);
-  font-weight: 500;
   transition: color 0.3s ease;
   text-align: center;
 
